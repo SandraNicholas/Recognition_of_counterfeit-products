@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneaker Authentication Service</title>
+    <style>
+        body, h1, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+
+        header {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          padding: 20px;
+          background: none;
+          box-shadow: none;
+          position: relative;
+}
+      
+        ul {
+            list-style: none;
+        }
+
+        
+
+        .logo img {
+    width: 100px;
+    
+    
+}
+
+         /*.logo {
+    position: absolute;
+    left: 20px;
+}*/
+
+
+        nav {
+    text-align: right;
+}
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+            
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 18px;
+            
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px;
+            background-image: url('sneaker-image.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 22px;
+        }
+
+        .hero img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .upload-container {
+            padding: 20px;
+        }
+
+        .upload-container input[type="file"] + label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: #black;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .how-it-works {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .how-it-works img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .how-it-works h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+          color:#ffffff
+        }
+
+        .how-it-works p {
+            font-size: 22px;
+            text-align: center;
+            max-width: 800px;
+          color: #ffffff
+        }
+
+        .about-us {
+          padding: 50px;
+          text-align: center;
+          /*background-color: rgba(255, 255, 255, 0.7);*/
+          border-radius: 10px;
+          max-width: 800px;
+          margin: 0 auto;
+          
+      }
+      
+      .about-us h2 {
+          font-size: 32px;
+          margin-bottom: 10px;
+          color: #ffffff;
+          
+      }
+      
+      .about-us p {
+          font-size: 22px;
+          line-height: 1.6;
+          color: #ffffff;
+      }
+
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            color: #ffffff;
+              }
+
+        .team h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .team-members {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            color: #ffffff
+            text-decoration: none;
+        }
+        
+        .team-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            color: #ffffff
+            text-decoration: none;
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            color: #ffffff
+        }
+        
+        .team-member h3 {
+            font-size: 18px;
+            margin: 10px 0;
+          
+            color: #ffffff
+            
+            
+        }
+
+        .team-member a {
+          text-decoration: none;
+          color: inherit;
+      }
+      
+      .team-member a:hover {
+          color: inherit;
+      }
+      
+      .team a:hover h3 {
+          color: #0077b5;
+      }
+
+
+        .team-heading {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container input,
+.input-container select,
+.input-container button {
+  margin-top: 10px;
+  padding: 5px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 5px;
+  background: linear-gradient(to right, #11998e, #38ef7d);
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+
+
+
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            /*background-color: #FF9A8B;
+            background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);*/
+            min-height: 100vh;
+            box-sizing: border-box;
+
+          background: #ff9966;  
+background: -webkit-linear-gradient(to right, #ff5e62, #ff9966);
+background: linear-gradient(to right, #ff5e62, #ff9966); 
+
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="logo">
+                <img src={{ url_for('static', filename='logo.png') }} alt="AuthenKicks"/>
+                
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                      <li>
+                        <a href="#technology">Technology</a></li>
+                     <li><a href="#about-us">About Us</a></li>
+          <li><a href="#team">Team</a></li>
+                  </ul>
+            </nav>
+        </header>
+        <section class="hero">
+            <h1>Sneaker Authentication</h1>
+            <p>Verify the authenticity of your sneakers with our advanced AI-based technology.</p>
+            <img src={{ url_for('static', filename='Sneaker.png') }} alt="Sneaker image"/>
+            
+        </section>
+        <div class="container">
+            <div class="upload-container">
+                <input type="file" id="sneakerImage" accept="image/*" style="display:none;">
+                <label for="sneakerImage">Upload Sneaker Image</label>
+                <img id="uploadedImage" src="#" alt="Uploaded Image" style="display:none; width: 300px; height: 300px; border-radius: 5px; color: #ffffff; box-sizing: border-box; margin-top: 20px;"/>
+    
+            </div>
+        </div>
+        <div id="results"style=color: #ffffff></div>
+        <p><img id="output" width="200" /></p>
+        <section class="how-it-works" id="technology">
+            <h2>How It Works</h2>
+            <img src={{ url_for('static', filename='How_it_works_2.png') }} alt="How it works image"/>
+            <p>Our advanced AI-based technology analyzes your uploaded sneaker image and compares it to a database of authentic sneakers. The system checks for various factors such as design, materials, stitching, and logos. After analyzing the image, it provides you with detailed information on the authenticity of the sneaker, including the reasons why it's deemed genuine or fake.</p>
+        </section>
+
+        <section class="about-us"id="about-us">
+    <h2>About Us</h2>
+    <p>
+        We are a passionate team dedicated to providing the best sneaker authentication service. Our AI-based technology ensures that sneaker enthusiasts and collectors can easily verify the authenticity of their sneakers. With our service, we aim to build trust in the sneaker community and help combat the rise of counterfeit products.
+    </p>
+</section>
+
+      
+<section class="Team"id="team">
+    <h2 class="team-heading">Meet the Team</h2>
+    <div class="team-members">
+        
+        <div class="team-member">
+            <img src={{ url_for('static', filename='profile_pics/dimble.jpeg') }} alt="Dimble"/>
+          <a href="https://www.linkedin.com/in/dimblescaria/" target="_blank">
+            <h3>Dimble Scaria</h3>
+          </a>   
+        </div>
+      
+        <div class="team-member">
+            <img src={{ url_for('static', filename='profile_pics/sandra.jpeg') }} alt="Sandra"/>
+            
+          <a href="https://www.linkedin.com/in/sandranicholas26/" target="_blank">
+            <h3>Sandra Nicholas</h3>
+           </a>
+            
+        </div>
+
+        <div class="team-member">
+            <img src={{ url_for('static', filename='profile_pics/tom.jpeg') }} alt="Tom"/>
+          <a href="https://www.linkedin.com/in/tomjamesm" target="_blank">
+            <h3>Tom James</h3>
+          </a>
+        </div>
+
+        <div class="team-member">
+            <img src={{ url_for('static', filename='profile_pics/omer.png') }} alt="Omer"/>
+          <a href="https://www.linkedin.com/in/omershaik/" target="_blank">
+            <h3>Omer Shaik</h3>
+            </a>
+        </div>
+
+        <div class="team-member">
+            <img src={{ url_for('static', filename='profile_pics/sahaj.png') }} alt="Sahaj"/>
+          <a href="https://www.linkedin.com/in/sahaj-/" target="_blank">
+            <h3>Sahaj </h3>
+            </a>
+        </div>
+    </div>
+    </div>
+</section>
+
+    </div>
+    
+    	
+    <script>
+        document.getElementById('sneakerImage').onchange = function () {
+            // Show the uploaded image
+        const uploadedImage = document.getElementById('uploadedImage');
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            uploadedImage.src = e.target.result;
+            uploadedImage.style.display = 'block';
+        };
+        reader.readAsDataURL(this.files[0]);
+            
+    if (this.files && this.files[0]) {
+
+        var formData = new FormData();
+        formData.append('image', this.files[0]);
+
+        // Send a POST request to the predict API endpoint with the image file data
+        fetch('/predict', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(result => {
+            var results;
+            if (result.mse ==1) {
+                results="Alert!!! There is a chance of this product to be counterfeit";
+        } else {
+            results="The sneaker is a Original";
+        }
+    
+            // Display the result returned by the predict API
+
+            document.getElementById('results').innerHTML = results;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        // Analyzing the sneaker image and display the result
+        // We have to replace the image processing logic here
+
+        // Placeholder result (replacing with our actual implementation)
+        //document.getElementById('results').innerHTML = "The sneaker is real. Reasons: Correct stitching, accurate logo placement, and high-quality materials.";
+    }
+};
+       
+</script>
+</body>
+</html>
+
+                   
